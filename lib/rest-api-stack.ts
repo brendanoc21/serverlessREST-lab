@@ -108,18 +108,17 @@ export class RestAPIStack extends cdk.Stack {
           "GET",
           new apig.LambdaIntegration(getAllMoviesFn, { proxy: true })
         );
+        
+        moviesEndpoint.addMethod(
+          "POST",
+          new apig.LambdaIntegration(newMovieFn, { proxy: true })
+        );
         // Detail movie endpoint
         const specificMovieEndpoint = moviesEndpoint.addResource("{movieId}");
         specificMovieEndpoint.addMethod(
           "GET",
           new apig.LambdaIntegration(getMovieByIdFn, { proxy: true })
         );
-
-        moviesEndpoint.addMethod(
-          "POST",
-          new apig.LambdaIntegration(newMovieFn, { proxy: true })
-        );
-
       }
     }
     
