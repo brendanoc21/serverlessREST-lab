@@ -1,4 +1,4 @@
-// export type Language = 'English' | 'Frenc
+// export type Language = 'English' | 'French
 
 export type Movie =   {
   id: number,
@@ -27,5 +27,5 @@ export type MovieCast = {
 export type MovieCastMemberQueryParams = {
   movieId: string;
   actorName?: string;
-  roleName?: string
+  roleName?: string;
 }
